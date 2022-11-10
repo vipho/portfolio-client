@@ -1,20 +1,19 @@
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, } from "react-router-dom"
 import { Provider } from 'react-redux'
 import { store } from './store/store'
+import { createGlobalStyle } from 'styled-components'
 import reportWebVitals from './reportWebVitals'
 
 import Main from './views/Main/Main'
-
-import './index.css'
-import React from 'react'
+import reboot from './style/reboot'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
+
+const GlobalCSS = createGlobalStyle`${reboot}`
 
 const router = createBrowserRouter([
   {
@@ -29,10 +28,13 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </ React.StrictMode>
+    <>
+      <GlobalCSS />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </>
+  </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
