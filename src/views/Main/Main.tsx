@@ -1,11 +1,9 @@
-import WrapperMain from '../../components/WrapperMain'
+import WrapperMain from "components/WrapperMain"
 
-export default function App(): JSX.Element {
+export default function Main(): JSX.Element {
   return (
     <WrapperMain>
-      <div className="App">
-        123
-      </div>
+      123
     </WrapperMain>
   )
 }
